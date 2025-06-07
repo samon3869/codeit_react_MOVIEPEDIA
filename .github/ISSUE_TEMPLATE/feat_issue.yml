@@ -1,0 +1,81 @@
+name: Feature Request
+description: Submit a feature request for product improvement
+title: "[Feature]: 자동 로그인 기능 추가"
+labels: ["enhancement", "triage"]
+projects: ["octo-org/1"]
+assignees:
+  - octocat
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for proposing a feature to improve the product experience!
+  - type: input
+    id: contact
+    attributes:
+      label: Contact Details
+      description: How can we contact you for more information?
+      placeholder: ex. email@example.com
+    validations:
+      required: false
+  - type: textarea
+    id: summary
+    attributes:
+      label: Feature Summary
+      description: Briefly describe the feature and what problem it solves
+      placeholder: Brief overview of the feature
+      value: |
+        사용자의 로그인 편의성을 위해 자동 로그인 기능을 도입합니다.
+    validations:
+      required: true
+  - type: textarea
+    id: background
+    attributes:
+      label: Background / Problem Statement
+      description: Why is this feature needed? What's the context or problem?
+      placeholder: Describe the background or pain point
+      value: |
+        - 현재는 브라우저를 닫으면 매번 로그인을 다시 해야 함
+        - 반복 입력의 불편함을 줄여 이탈률을 낮추고자 함
+    validations:
+      required: true
+  - type: checkboxes
+    id: requirements
+    attributes:
+      label: Implementation Requirements
+      description: What must be done to implement this feature?
+      options:
+        - label: 로그인 폼에 자동 로그인 체크박스 추가
+        - label: localStorage에 토큰 저장 로직 구현
+        - label: 자동 로그인 여부에 따라 리디렉션 처리
+        - label: 보안 이슈 검토 (만료시간, 저장 형식 등)
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Done Criteria
+      description: What conditions must be met for this to be considered complete?
+      value: |
+        - 체크박스를 활성화하고 로그인 시, 브라우저 재접속 후에도 자동 로그인됨
+        - localStorage 토큰 만료 시 재로그인 유도
+        - 로그인 실패 시 예외 메시지 정상 출력
+    validations:
+      required: true
+  - type: textarea
+    id: references
+    attributes:
+      label: Related Links / References
+      description: Attach any relevant documents or links
+      value: |
+        - Figma 링크: [🔗 로그인 리디자인](https://figma.com/xxxx)
+        - 기존 로그인 PR: #23
+        - 유사 기능 이슈: #12
+    validations:
+      required: false
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Code of Conduct
+      description: By submitting this issue, you agree to follow our [Code of Conduct](https://example.com).
+      options:
+        - label: I agree to follow this project's Code of Conduct
+          required: true
