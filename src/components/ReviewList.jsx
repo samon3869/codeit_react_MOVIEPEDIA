@@ -7,7 +7,9 @@ function formatDate(value) {
 }
 
 
-function ReviewListItem({ item }) {
+function ReviewListItem({ item, onDelete }) {
+    const handleDeleteClick = () => onDelete(item.id);
+    
     return (
         <div className="ReviewListItem">
             <img src={item.imgUrl} alt={item.title} className="ReviewListItem-img" />
@@ -16,19 +18,20 @@ function ReviewListItem({ item }) {
                 <p>{item.rating}</p>
                 <p>{formatDate(item.createdAt)}</p>
                 <p>{item.content}</p>
+                <button onClick={handleDeleteClick}>삭제</button>
             </div>
         </div>
     );
 }
 
 
-function ReviewList({ items }) {
+function ReviewList({ items, onDelete }) {
     return (
         <ul>
             {items.map((item) => {
                 return (
                     <li>
-                        <ReviewListItem item={item} />
+                        <ReviewListItem item={item} onDelete={onDelete} />
                     </li>
                 );
             })}
