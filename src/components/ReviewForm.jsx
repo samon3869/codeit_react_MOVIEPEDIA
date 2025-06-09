@@ -18,18 +18,15 @@ function ReviewForm() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log({
-            title,
-            rating,
-            content,
-        })
-    }
+        console.log(values);
+    };
 
     return (
-        <form className="ReviewForm">
+        <form className="ReviewForm" onSubmit={handleSubmit}>
             <input type="text" name="title" value={values.title} onChange={handleChange}/>
             <input type="number" name="rating" value={values.rating} onChange={handleChange}/>
             <textarea name="content" value={values.content} onChange={handleChange}/>
+            <button type="submit">확인</button>
         </form>
     );
 }
