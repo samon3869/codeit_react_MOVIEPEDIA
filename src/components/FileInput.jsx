@@ -1,15 +1,12 @@
 import { useState } from "react";
 
-function FileInput() {
-    const [value, setValue] = useState();
-
+function FileInput({ name, value, onChange }) {
     const handleChange = (e) => {
-        console.log(e.target.value);
         const nextValue = e.target.files[0];
-        setValue(nextValue);
+        onChange(name, nextValue);
     };
 
-    return <input type="file" value={value} onChange={handleChange} />;
+    return <input type="file" onChange={handleChange} />;
 }
 
 export default FileInput;
